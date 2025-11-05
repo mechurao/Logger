@@ -14,7 +14,9 @@
     "sourceMap": true,
     "inlineSources": true,
     "noImplicitAny": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"],
+    "lib": ["ES2020"]
   },
   "include": ["src"]
 }
