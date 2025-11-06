@@ -52,14 +52,3 @@ export class Logger {
 }
 
 export default Logger;
-
-// Fix for CommonJS require() without using "module" directly
-const g: any = typeof globalThis !== 'undefined' ? globalThis : (typeof global !== 'undefined' ? global : {});
-if (g && g.require && g.process && g.process.release && g.process.release.name === 'node') {
-    const m = g.module;
-    if (m && m.exports) {
-        m.exports = Logger;
-        m.exports.default = Logger;
-        m.exports.Logger = Logger;
-    }
-}
