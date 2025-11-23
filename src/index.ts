@@ -26,12 +26,30 @@ export class Logger {
         return '';
     }
 
-    static processOutput(moduleName: string | number, component: string | number, message: unknown, attr?: Attr): string {
+    static getDateTime(): string {
+        const now = new Date();
+
+        const date = now.toISOString().slice(0, 10); // YYYY-MM-DD
+        const time = now
+            .toLocaleTimeString('cs-CZ', { hour12: false })
+            .padStart(8, '0'); // HH:mm:ss
+
+        return chalk.yellow(`${date} ${time}`);
+    }
+
+    static processOutput(
+        moduleName: string | number,
+        component: string | number,
+        message: unknown,
+        attr?: Attr
+    ): string {
+        const dateTime = this.getDateTime();
         const modStr = chalk.cyan(String(moduleName).padEnd(15));
         const compStr = chalk.magenta(String(component).padEnd(15));
         const msgStr = util.inspect(message, { depth: null, colors: true });
         const attrStr = this.formatAttr(attr);
-        return `${modStr} ${compStr} ${msgStr} ${attrStr}`;
+
+        return `${dateTime} ${modStr} ${compStr} ${msgStr} ${attrStr}`;
     }
 
     static log(moduleName: string | number, component: string | number, message: unknown, attr?: Attr) {
