@@ -1,6 +1,6 @@
 {
   "name": "@mechurao/logger",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Lightweight structured logger with colorized output",
   "author": "Ondřej Mechura <mechurao1998@gmail.com>",
   "license": "MIT",
