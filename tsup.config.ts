@@ -11,9 +11,5 @@ export default defineConfig([
         splitting: false,
         sourcemap: false,
         minify: false,
-        cjsInterop: true,
-        outExtension({ format }) {
-            return { js: format === 'cjs' ? '.cjs.js' : '.esm.js' };
-        },
     },
 ]);
